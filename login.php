@@ -1,19 +1,38 @@
 <?php
 session_start();
+require_once 'auth_functions.php';
 
-// Simple authentication logic (you should use proper password hashing in production)
+
+if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+    header('Location: vantavoyage.php');
+    exit;
+}
+
+$success_message = '';
+if (isset($_SESSION['registration_success'])) {
+    $success_message = $_SESSION['registration_success'];
+    unset($_SESSION['registration_success']);
+}
+
 if ($_POST) {
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
     
-    // Example credentials (replace with database check)
-    if ($email === 'admin@example.com' && $password === 'password') {
-        $_SESSION['logged_in'] = true;
-        $_SESSION['user_email'] = $email;
-        header('Location: dashboard.php');
-        exit;
+    if (empty($email) || empty($password)) {
+        $error = 'Please enter both email and password';
     } else {
-        $error = 'Invalid email or password';
+        $result = authenticateUser($email, $password);
+        
+        if ($result['success']) {
+            $_SESSION['logged_in'] = true;
+            $_SESSION['user_id'] = $result['user']['id'];
+            $_SESSION['user_name'] = $result['user']['name'];
+            $_SESSION['user_email'] = $result['user']['email'];
+            header('Location: vantavoyage.php');
+            exit;
+        } else {
+            $error = $result['message'];
+        }
     }
 }
 ?>
@@ -216,6 +235,17 @@ if ($_POST) {
             font-size: 14px;
         }
 
+        .success-message {
+            background: rgba(40, 167, 69, 0.1);
+            border: 1px solid rgba(40, 167, 69, 0.3);
+            color: #28a745;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
@@ -237,6 +267,12 @@ if ($_POST) {
         <div class="form-section">
             <h1>Log in</h1>
             <p class="subtitle">Welcome back! Please sign in to your account</p>
+
+            <?php if (!empty($success_message)): ?>
+                <div class="success-message">
+                    <?php echo htmlspecialchars($success_message); ?>
+                </div>
+            <?php endif; ?>
 
             <?php if (isset($error)): ?>
                 <div class="error-message">
