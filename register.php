@@ -73,6 +73,8 @@ if ($_POST) {
             justify-content: center;
             color: white;
             font-size: 18px;
+            position: relative;
+            overflow: hidden;
         }
 
         h1 {
@@ -292,7 +294,7 @@ if ($_POST) {
         </div>
 
         <div class="illustration-section">
-            [Illustration Area]
+            <img src="assets/illustration_1.png" alt="Registration Illustration" style="width: 100%; height: 100%; object-fit: fill; position: absolute; top: 0; left: 0;">
         </div>
     </div>
 
