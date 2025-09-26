@@ -1,13 +1,11 @@
 <?php
 session_start();
 
-// Check if user is already logged in, redirect to dashboard
 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
     header('Location: vantavoyage.php');
     exit;
 }
 
-// Simple authentication logic (you should use proper password hashing in production)
 if ($_POST) {
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
