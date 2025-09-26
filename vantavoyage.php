@@ -5,6 +5,8 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
@@ -16,7 +18,7 @@ session_start();
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Montserrat', sans-serif; /* for normal text */
             line-height: 1.6;
             color: #333;
         }
@@ -26,7 +28,7 @@ session_start();
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: #f8f4f0;
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             z-index: 1000;
@@ -34,6 +36,8 @@ session_start();
         }
 
         .logo-container {
+            font-size: 15px;
+            font-family: 'Rock Salt', cursive;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -108,13 +112,13 @@ session_start();
         }
 
         .hero h1 {
+            font-family: 'Rock Salt', cursive;
             font-size: 3.5rem;
             font-weight: 800;
             margin-bottom: 1rem;
-            background: linear-gradient(45deg, #fff, #f0f0f0);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
         }
 
         .hero p {
@@ -124,13 +128,14 @@ session_start();
         }
 
         .hero-cta {
+            
             display: inline-flex;
             gap: 1rem;
         }
 
         .btn-primary {
             background: white;
-            color: #640908;
+            color: #781010;
             padding: 1rem 2rem;
             border: none;
             border-radius: 50px;
@@ -167,7 +172,7 @@ session_start();
         /* Features Section */
         .features {
             padding: 100px 2rem;
-            background: #f8f9fa;
+            background: #f8f4f0;
         }
 
         .container {
@@ -176,8 +181,15 @@ session_start();
         }
 
         .section-header {
+            gap: 10px;
             text-align: center;
             margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Rock Salt', cursive;
+            color: #1D1B19;
+            margin-bottom: 10px;
         }
 
         .section-title {
@@ -214,21 +226,9 @@ session_start();
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #640908 0%, #8b0a0b 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2rem;
-        }
-
         .feature-title {
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.2rem;
+            font-weight: 800;
             margin-bottom: 1rem;
             color: #333;
         }
@@ -241,7 +241,7 @@ session_start();
         /* Stats Section */
         .stats {
             padding: 100px 2rem;
-            background: linear-gradient(135deg, #640908 0%, #8b0a0b 100%);
+            background: #E4D7BF;
             color: white;
             text-align: center;
         }
@@ -254,6 +254,8 @@ session_start();
         }
 
         .stat-item {
+            border-radius: 15px;
+            background-color: #640908;
             padding: 2rem;
         }
 
@@ -277,7 +279,7 @@ session_start();
         /* Testimonials Section */
         .testimonials {
             padding: 100px 2rem;
-            background: #fff;
+            background: #f8f9fa;
         }
 
         .testimonials-grid {
@@ -288,7 +290,7 @@ session_start();
         }
 
         .testimonial-card {
-            background: #f8f9fa;
+            background: #fff;
             padding: 2rem;
             border-radius: 20px;
             position: relative;
@@ -464,7 +466,7 @@ session_start();
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">
+            <a href="#home" class="logo">
                 <div class="logo-container">
                     <img src="assets/Logo.svg" alt="Brand Logo" style="height:40px; vertical-align:middle;">
                     VANTA VOYAGE
@@ -489,11 +491,11 @@ session_start();
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Trojan's Herald | Vanta Voyage</h1>
-            <h2>March of the New Bloods</h2>
-            <p>Get ready, freshmen and transferees! Our March of the New Bloods begins now.</p>
+            <h1>Unleashing the New Bloods</h1>
+            <h2>A movement for dreamers, doers, and the relentlesss</h2>
+            <p>Ready or not, the voyage begins.</p>
             <div class="hero-cta">
-                <a href="#" class="btn-primary">Learn More</a>
+                <a href="#features" class="btn-primary">Join the March</a>
             </div>
         </div>
     </section>
@@ -502,43 +504,43 @@ session_start();
     <section id="features" class="features">
     <div class="container">
         <div class="section-header">
-        <h2 class="section-title">Main Events</h2>
-        <p class="section-subtitle">Fueling competition with rock energy</p>
+            <h2 class="section-title">Vanta Voyage Main Acts</h2>
+            <p class="section-subtitle">The spotlight burns brightest on the fiercest performances.</p>
         </div>
         <div class="features-grid">
         
-        <!-- Feature 1 -->
-        <div class="feature-card">
-            <div class="feature-image">
-            <img src="assets/event1.jpg" alt="Event 1" style="width: 100%; height: 100%; object-fit: fill; top: 0; left: 0; border-radius: 12px;">
+            <!-- Feature 1 -->
+            <div class="feature-card">
+                <div class="feature-image">
+                <img src="assets/event1.jpg" alt="Event 1" style="width: 100%; height: 100%; object-fit: fill; top: 0; left: 0; border-radius: 12px;">
+                </div>
+                <h3 class="feature-title">Battle of the Bands</h3>
+                <p class="feature-description">
+                Feel the energy as student bands clash on stage, bringing raw talent and rock spirit.
+                </p>
             </div>
-            <h3 class="feature-title">Battle of the Bands</h3>
-            <p class="feature-description">
-            Feel the energy as student bands clash on stage, bringing raw talent and rock spirit.
-            </p>
-        </div>
-        
-        <!-- Feature 2 -->
-        <div class="feature-card">
-            <div class="feature-image">
-            <img src="assets/event2.jpg" alt="Event 2" style="width: 100%; height: 100%; object-fit: fill; top: 0; left: 0; border-radius: 12px;">
+            
+            <!-- Feature 2 -->
+            <div class="feature-card">
+                <div class="feature-image">
+                <img src="assets/event2.jpg" alt="Event 2" style="width: 100%; height: 100%; object-fit: fill; top: 0; left: 0; border-radius: 12px;">
+                </div>
+                <h3 class="feature-title">Mr. and Ms. Vanta Voyage</h3>
+                <p class="feature-description">
+                Witness the rise of talent and charisma as students compete for the crown.
+                </p>
             </div>
-            <h3 class="feature-title">Mr. and Ms. Vanta Voyage</h3>
-            <p class="feature-description">
-            Witness the rise of talent and charisma as students compete for the crown.
-            </p>
-        </div>
-        
-        <!-- Feature 3 -->
-        <div class="feature-card">
-            <div class="feature-image">
-            <img src="assets/event3.jpg" alt="Event 3" style="width: 100%; height: 100%; object-fit: fill; top: 0; left: 0; border-radius: 12px;">
+            
+            <!-- Feature 3 -->
+            <div class="feature-card">
+                <div class="feature-image">
+                <img src="assets/event3.jpg" alt="Event 3" style="width: 100%; height: 100%; object-fit: fill; top: 0; left: 0; border-radius: 12px;">
+                </div>
+                <h3 class="feature-title">Freshmen Showcase</h3>
+                <p class="feature-description">
+                A spotlight for new bloods to introduce themselves through performances and creativity.
+                </p>
             </div>
-            <h3 class="feature-title">Freshmen Showcase</h3>
-            <p class="feature-description">
-            A spotlight for new bloods to introduce themselves through performances and creativity.
-            </p>
-        </div>
 
         </div>
     </div>
@@ -674,9 +676,9 @@ session_start();
         window.addEventListener('scroll', () => {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 100) {
-                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.background = '#f8f9fa';
             } else {
-                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.background = '#f8f9fa';
             }
         });
 
