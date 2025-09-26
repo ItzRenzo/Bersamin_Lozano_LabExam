@@ -1,23 +1,28 @@
 <?php
 session_start();
+require_once 'auth_functions.php';
 
 if ($_POST) {
     $name = $_POST['name'] ?? '';
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
     
-
     if (empty($name) || empty($email) || empty($password)) {
         $error = 'All fields are required';
     } elseif (strlen($password) < 6) {
         $error = 'Password must be at least 6 characters';
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $error = 'Please enter a valid email address';
     } else {
-
-        $_SESSION['registered'] = true;
-        $_SESSION['user_name'] = $name;
-        $_SESSION['user_email'] = $email;
-        header('Location: welcome.php');
-        exit;
+        $result = registerUser($name, $email, $password);
+        
+        if ($result['success']) {
+            $_SESSION['registration_success'] = 'Account created successfully! Please log in.';
+            header('Location: login.php');
+            exit;
+        } else {
+            $error = $result['message'];
+        }
     }
 }
 ?>
