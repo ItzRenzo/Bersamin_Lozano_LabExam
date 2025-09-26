@@ -1,16 +1,21 @@
 <?php
 session_start();
 
+// Check if user is already logged in, redirect to dashboard
+if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+    header('Location: vantavoyage.php');
+    exit;
+}
+
 // Simple authentication logic (you should use proper password hashing in production)
 if ($_POST) {
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
     
-    // Example credentials (replace with database check)
     if ($email === 'admin@example.com' && $password === 'password') {
         $_SESSION['logged_in'] = true;
         $_SESSION['user_email'] = $email;
-        header('Location: dashboard.php');
+        header('Location: vantavoyage.php');
         exit;
     } else {
         $error = 'Invalid email or password';
