@@ -29,6 +29,12 @@
             transition: all 0.3s ease;
         }
 
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -80,7 +86,8 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, #000000 0%, #640908 50%, #8b0a0b 100%);
+            background-image: url("assets/herobackground.jpg");
+            background-size: cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -88,17 +95,6 @@
             color: white;
             position: relative;
             overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
         }
 
         .hero-content {
@@ -464,7 +460,12 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">Brand</a>
+            <a href="#" class="logo">
+                <div class="logo-container">
+                    <img src="assets/Logo.svg" alt="Brand Logo" style="height:40px; vertical-align:middle;">
+                    VANTA VOYAGE
+                </div>
+            </a>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#features" class="nav-link">Features</a></li>
@@ -484,122 +485,132 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Welcome to the Future</h1>
-            <p>Discover innovative solutions that transform the way you work, live, and connect with the world around you.</p>
+            <h1>Trojan's Herald | Vanta Voyage</h1>
+            <h2>March of the New Bloods</h2>
+            <p>Get ready, freshmen and transferees! Our March of the New Bloods begins now.</p>
             <div class="hero-cta">
-                <a href="#" class="btn-primary">Get Started</a>
-                <a href="#" class="btn-secondary">Learn More</a>
+                <a href="#" class="btn-primary">Learn More</a>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
     <section id="features" class="features">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Powerful Features</h2>
-                <p class="section-subtitle">Everything you need to succeed, all in one comprehensive platform</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
-                    <h3 class="feature-title">Lightning Fast</h3>
-                    <p class="feature-description">Experience blazing fast performance with our optimized infrastructure and cutting-edge technology.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3 class="feature-title">Secure & Reliable</h3>
-                    <p class="feature-description">Your data is protected with enterprise-grade security and 99.9% uptime guarantee.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💡</div>
-                    <h3 class="feature-title">Smart Analytics</h3>
-                    <p class="feature-description">Make data-driven decisions with our intelligent analytics and real-time insights.</p>
-                </div>
-            </div>
+    <div class="container">
+        <div class="section-header">
+        <h2 class="section-title">Main Events</h2>
+        <p class="section-subtitle">Fueling competition with rock energy</p>
         </div>
+        <div class="features-grid">
+        
+        <!-- Feature 1 -->
+        <div class="feature-card">
+            <div class="feature-image">
+            <img src="assets/event1.jpg" alt="Event 1" style="width: 100%; height: 100%; object-fit: fill; top: 0; left: 0; border-radius: 12px;">
+            </div>
+            <h3 class="feature-title">Battle of the Bands</h3>
+            <p class="feature-description">
+            Feel the energy as student bands clash on stage, bringing raw talent and rock spirit.
+            </p>
+        </div>
+        
+        <!-- Feature 2 -->
+        <div class="feature-card">
+            <div class="feature-image">
+            <img src="assets/event2.jpg" alt="Event 2" style="width: 100%; height: 100%; object-fit: fill; top: 0; left: 0; border-radius: 12px;">
+            </div>
+            <h3 class="feature-title">Mr. and Ms. Vanta Voyage</h3>
+            <p class="feature-description">
+            Witness the rise of talent and charisma as students compete for the crown.
+            </p>
+        </div>
+        
+        <!-- Feature 3 -->
+        <div class="feature-card">
+            <div class="feature-image">
+            <img src="assets/event3.jpg" alt="Event 3" style="width: 100%; height: 100%; object-fit: fill; top: 0; left: 0; border-radius: 12px;">
+            </div>
+            <h3 class="feature-title">Freshmen Showcase</h3>
+            <p class="feature-description">
+            A spotlight for new bloods to introduce themselves through performances and creativity.
+            </p>
+        </div>
+
+        </div>
+    </div>
     </section>
+
 
     <!-- Stats Section -->
     <section class="stats">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Trusted by Thousands</h2>
-                <p class="section-subtitle">Join the growing community of satisfied customers worldwide</p>
-            </div>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">10K+</div>
-                    <div class="stat-label">Active Users</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">50M+</div>
-                    <div class="stat-label">Transactions</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">99.9%</div>
-                    <div class="stat-label">Uptime</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Support</div>
-                </div>
-            </div>
+    <div class="container">
+        <div class="section-header">
+        <h2 class="section-title">Vanta Voyage in Numbers</h2>
+        <p class="section-subtitle">Celebrating the spirit of unity, talent, and competition</p>
         </div>
+        <div class="stats-grid">
+        <div class="stat-item">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Freshmen & Transferees</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">20+</div>
+            <div class="stat-label">Student Organizations</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Main Events</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">1</div>
+            <div class="stat-label">Unforgettable Journey</div>
+        </div>
+        </div>
+    </div>
     </section>
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">What Our Customers Say</h2>
-                <p class="section-subtitle">Real stories from real people who love our product</p>
+    <div class="container">
+        <div class="section-header">
+        <h2 class="section-title">What Students Say</h2>
+        <p class="section-subtitle">First-hand voices from past participants</p>
+        </div>
+        <div class="testimonials-grid">
+        <div class="testimonial-card">
+            <p class="testimonial-content">"Vanta Voyage gave me the chance to connect with my peers and discover organizations I never knew existed. It’s the best start to my college life."</p>
+            <div class="testimonial-author">
+            <div class="author-avatar">AL</div>
+            <div class="author-info">
+                <h4>Ana Lopez</h4>
+                <p>First-Year Student</p>
             </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-content">"This platform has completely transformed our workflow. The intuitive design and powerful features make it a joy to use every day."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">JD</div>
-                        <div class="author-info">
-                            <h4>John Doe</h4>
-                            <p>CEO, Tech Startup</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-content">"The customer support is outstanding. They're always there when we need them, and the product just keeps getting better."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">SM</div>
-                        <div class="author-info">
-                            <h4>Sarah Miller</h4>
-                            <p>Marketing Director</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-content">"I've tried many similar tools, but nothing comes close to the reliability and ease of use this platform provides."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">MJ</div>
-                        <div class="author-info">
-                            <h4>Mike Johnson</h4>
-                            <p>Freelance Designer</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
+        <div class="testimonial-card">
+            <p class="testimonial-content">"The energy during the competitions was electric. March of the New Bloods truly makes you feel part of something bigger."</p>
+            <div class="testimonial-author">
+            <div class="author-avatar">RM</div>
+            <div class="author-info">
+                <h4>Ramon Morales</h4>
+                <p>Student Athlete</p>
+            </div>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <p class="testimonial-content">"I’ll never forget the Mr. and Ms. Vanta Voyage pageant. It was inspiring to see my fellow students showcase their talents."</p>
+            <div class="testimonial-author">
+            <div class="author-avatar">KC</div>
+            <div class="author-info">
+                <h4>Kaye Cruz</h4>
+                <p>Organization Member</p>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Get Started?</h2>
-                <p>Join thousands of satisfied customers and transform your business today</p>
-                <a href="#" class="btn-primary">Start Your Free Trial</a>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer class="footer">
