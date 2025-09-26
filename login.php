@@ -40,6 +40,7 @@ if ($_POST) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log in</title>
@@ -51,25 +52,25 @@ if ($_POST) {
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #000000 0%, #640908 100%);
+            font-family: 'Montserrat', sans-serif; /* for normal text */
+            background: linear-gradient(135deg, #f2e3c6 0%, #b8906c 40%, #640908 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #333333;
+            color: #e0e0e0;
             padding: 20px;
-        }
+        }   
 
         .container {
             display: flex;
-            background: rgba(255, 255, 255, 0.95);
+            background: #f8f4f0;
             border-radius: 20px;
             overflow: hidden;
             width: 100%;
             max-width: 800px;
             min-height: 500px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 6px rgba(100,9,8,0.3);
         }
 
         .form-section {
@@ -82,26 +83,45 @@ if ($_POST) {
 
         .illustration-section {
             flex: 1;
-            background: linear-gradient(135deg, #640908 0%, #8b0a0b 50%, #b8860b 100%);
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 18px;
-            position: relative;
             overflow: hidden;
         }
 
+        /* Overlay */
+        .illustration-section::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+            z-index: 1;
+        }
+
+
+        /* Image styling */
+        .illustration-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;   /* better than fill, prevents distortion */
+            position: absolute;
+            top: 0; left: 0;
+            z-index: 0;
+        }
+
+
         h1 {
+            font-family: 'Cinzel', serif; /* decorative serif, dramatic */
             font-size: 28px;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 8px;
+            letter-spacing: 1px;
+            color: #1a1a1a;
+            text-transform: uppercase;
         }
 
         .subtitle {
-            color: #666;
-            font-size: 14px;
+            color: #5a4036;
+            font-size: 15px;
             margin-bottom: 30px;
         }
 
@@ -113,21 +133,22 @@ if ($_POST) {
             width: 100%;
             padding: 16px;
             background: #f8f9fa;
-            border: 1px solid #e0e0e0;
+            border: 1px solid #bbb;
             border-radius: 8px;
             color: #333;
             font-size: 14px;
             transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .form-input::placeholder {
-            color: #999;
+            color: #aaa;
         }
 
         .form-input:focus {
             outline: none;
             border-color: #640908;
-            box-shadow: 0 0 0 3px rgba(100, 9, 8, 0.1);
+            box-shadow: 0 0 6px rgba(100, 9, 8, 0.1);
         }
 
         .password-container {
@@ -141,28 +162,43 @@ if ($_POST) {
             transform: translateY(-50%);
             background: none;
             border: none;
-            color: #999;
+            font-size: 18px;
+            color: #666;
             cursor: pointer;
+            transition: color 0.2s ease;
         }
 
+        .password-toggle:hover {
+            color: #640908;
+        }
+
+        /* Submit button */
         .submit-btn {
             width: 100%;
             padding: 16px;
-            background: linear-gradient(135deg, #640908 0%, #8b0a0b 100%);
-            color: white;
+            background: #4b0c0c;
+            color: #fff;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: 0.5px; /* subtle poster-like spacing */
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 10px;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .submit-btn:hover {
-            background: linear-gradient(135deg, #7a0b0a 0%, #a00c0d 100%);
-            transform: translateY(-1px);
+            background: linear-gradient(135deg, #781010 0%, #a11c19 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
+
+        .submit-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
 
         .divider {
             text-align: center;
@@ -225,26 +261,17 @@ if ($_POST) {
         }
 
         .error-message {
-            background: rgba(220, 53, 69, 0.1);
-            border: 1px solid rgba(220, 53, 69, 0.3);
-            color: #dc3545;
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            text-align: center;
-            font-size: 14px;
+            background: rgba(140, 26, 23, 0.1);
+            border: 1px solid rgba(140, 26, 23, 0.3);
+            color: #8c1a17;
         }
 
         .success-message {
-            background: rgba(40, 167, 69, 0.1);
-            border: 1px solid rgba(40, 167, 69, 0.3);
-            color: #28a745;
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            text-align: center;
-            font-size: 14px;
+            background: rgba(60, 120, 60, 0.1);
+            border: 1px solid rgba(60, 120, 60, 0.3);
+            color: #2e6d2e;
         }
+
 
         @media (max-width: 768px) {
             .container {
@@ -266,7 +293,7 @@ if ($_POST) {
     <div class="container">
         <div class="form-section">
             <h1>Log in</h1>
-            <p class="subtitle">Welcome back! Please sign in to your account</p>
+            <p class="subtitle">Join the march. Be part of the voyage.</p>
 
             <?php if (!empty($success_message)): ?>
                 <div class="success-message">
@@ -310,12 +337,12 @@ if ($_POST) {
             </form>
                 <br>
             <div class="login-link">
-                Don't have an account? <a href="register.php">Sign up</a>
+                First time here? March with us → <a href="register.php">Sign up</a>
             </div>
         </div>
 
         <div class="illustration-section">
-            <img src="assets/illustration_1.png" alt="Registration Illustration" style="width: 100%; height: 100%; object-fit: fill; position: absolute; top: 0; left: 0;">
+            <img src="assets/illustration_1.png" alt="Registration Illustration">
         </div>
     </div>
 
@@ -326,7 +353,7 @@ if ($_POST) {
             
             if (passwordInput.type === 'password') {
                 passwordInput.type = 'text';
-                toggleBtn.textContent = '🙈';
+                toggleBtn.textContent = '🩸';
             } else {
                 passwordInput.type = 'password';
                 toggleBtn.textContent = '👁';
